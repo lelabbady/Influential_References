@@ -177,5 +177,5 @@
    'modes': []}},
  {'10.1038/476145a': {'title': 'ArXiv at 20', 'tags': [], 'modes': []}},
  {'10.23915/distill.00031': {'title': 'Distill Hiatus',
-   'tags': [],
-   'modes': []}}]
+   'tags': ['publishing'],
+   'modes': ['theory']}}]
