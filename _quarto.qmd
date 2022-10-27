@@ -1,9 +1,4 @@
 ---
-project:
-  type: website
-#   output-dir: http://10.178.108.67:8080
-#   output-dir: docs
-  output-dir: https://ellenlesser.quarto.pub/LitSearch
   
 title: "Which papers are referenced most across research interests?"
 
