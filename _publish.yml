@@ -1,0 +1,8 @@
+- source: project
+  quarto-pub:
+    - id: qpa_QSzSPB18KYn5p2iwaSeOYSRtHabZpVGwH7eNwQMHXQ6q3Zpo0GVgfPcEqloNqdI5
+      url: 'https://ellenlesser.quarto.pub/AugmentedArticle'
+- source: _quarto.qmd
+  quarto-pub:
+    - id: abe7fb34-0a02-4c5e-9525-d1c254644720
+      url: 'https://quartopub.com/sites/ellenlesser/muscle-synergies-define-premotor-circuits-of-_drosophila_-wing-and-thorax-muscles-13cf'
