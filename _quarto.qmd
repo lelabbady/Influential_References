@@ -38,10 +38,10 @@ a note about filtering: to build this proof-of-concept, we filtered out referenc
 
 ```{python}
 # import packages
-import pandas as pd
 import json
 import numpy as np
 import altair as alt
+import pandas as pd
 ```
 
 ```{python}
