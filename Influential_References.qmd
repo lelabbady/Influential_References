@@ -1,9 +1,8 @@
 ---
   
 title: "Which papers are referenced most across research interests?"
-project: website
+
 format: html
-self-contained: true
 page-layout: article
 toc: true
 
