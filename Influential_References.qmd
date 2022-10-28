@@ -40,7 +40,7 @@ import pandas as pd
 
 ```{python}
 # data frame formatting
-merged_df = pd.read_pickle('reference_df_with_tags.pkl')
+merged_df = pd.read_pickle('./data/reference_df_with_tags.pkl')
 merged_edges = merged_df.groupby(['ref_title', 'class_paper']).size().reset_index(name='count')
 
 merged_df.query('citationCount == 0').shape
