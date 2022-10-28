@@ -1,21 +1,15 @@
 ---
-  
-title: "Which papers are referenced most across research interests?"
-
+title: "Which papers are referenced most across research interests"
+author: Leila Elabbady and Ellen Lesser
 format: html
 page-layout: article
 toc: true
-
-execute:
-  echo: false
-  warning: false
-  freeze: true
 jupyter: python3
 ---
 
- ### We built a tool to help researchers find foundational papers for a given keyword, or set of keywords. ###
-
 #### Overview 
+We built a tool to help researchers find foundational papers for a given keyword, or set of keywords.
+
 The original dataset included a list of papers with their semantic scholar metadata. We will refer to this initial set of 65 papers as source papers. The semantic scholar metadata includes all of the references for each of these source papers. These were all aggregated into a reference paper dataset. With these two sets of papers, the question we sought out to ask was - **can we create a visualization to aid researchers to quickly find important papers within a given research interest?**  
 
 "Important" here is measured by both number of citations as well as the number of source papers that have referenced the same reference paper.
@@ -26,10 +20,11 @@ The original dataset included a list of papers with their semantic scholar metad
 
 **Future directions:** Right now, this tool is only for small-scale datasets; we manually labeled the papers. In the future, this tool could be scaled my assigning keywords computationally i.e. by taking the most used words (with a filter for common words like "the").
 
-a note about filtering: to build this proof-of-concept, we filtered out referenced papers with 0 semantic scholar citations.
+**A note about filtering:** to build this proof-of-concept, we filtered out referenced papers with 0 semantic scholar citations.
 
 
 ```{python}
+#| echo: false
 # import packages
 import json
 import numpy as np
@@ -38,6 +33,7 @@ import pandas as pd
 ```
 
 ```{python}
+#| echo: false
 # data frame formatting
 merged_df = pd.read_pickle('./data/reference_df_with_tags.pkl')
 merged_edges = merged_df.groupby(['ref_title', 'class_paper']).size().reset_index(name='count')
@@ -60,6 +56,7 @@ source_df['is_valid'] = is_valid
 ```
 
 ```{python}
+#| echo: false
 # plot!
 source = source_df[:5000].sort_values('shared_by')
 year_ticks = [int(i) for i in np.arange(1880,2030,10)]
@@ -78,8 +75,8 @@ points = alt.Chart(source).mark_point().encode(
     #color=alt.condition(brush, color, alt.value('lightgray')),
     size=alt.Size('shared_by:Q')
 ).properties(
-    width=700,
-    height=550
+    width=600,
+    height=500
 ).transform_filter(
     pts
 )
@@ -95,7 +92,7 @@ bars = alt.Chart(source.dropna()).transform_filter(
     x='count()',
     color=alt.condition(pts, color, alt.value('gray'))
 ).properties(
-    width=700
+    width=600
 ).add_selection(pts)
 
 alt.vconcat(
